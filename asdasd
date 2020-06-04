@@ -1,0 +1,32 @@
+/*render() {
+    const img = document.createElement('img');
+    img.src = this.imgSrc;
+    img.onload = () => {
+      console.log('1111');
+      this.insertAdjacentHTML('beforeend', `<img src='${img.src}'>`);
+    }
+  }
+
+  getLinkToImage() {
+    const url = 'https://api.unsplash.com/photos/random?orientation=landscape&er_page=1&query=morning&client_id=ov4-b5c-bGo4FIB1KcQg-d7FCpNZw56eZ3NfycMWNEw';
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        this.imgSrc = data.urls.regular;
+        console.log(this.imgSrc);
+        this.render();
+      });
+  }
+
+  connectedCallback() {
+    this.getLinkToImage();
+  }
+
+  static get observedAttributes() {
+    return ['imgSrc'];
+  }
+
+  attributeChangedCallback() {
+    this.render();
+  }
+*/

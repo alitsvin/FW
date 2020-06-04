@@ -1,0 +1,130 @@
+@import "utils/vars";
+
+@import './modules/background.scss';
+@import './modules/controlPanel.scss';
+@import './modules/weatherToday.scss';
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-size: $fontSize;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $backgroundColor;
+}
+
+info-block.switched {
+  transition-property: transform;
+  transition-duration:1s;
+}
+
+info-block.active {
+  transform: translateX(0vw);
+}
+
+
+control-panel {
+  width: 100%; 
+  min-height: 50px;
+  max-height: 70px;
+  height: 10%;
+  display: flex;
+  position: relative;
+  z-index: 30;
+  flex-direction: row; 
+  justify-content: space-around;
+  align-items: center;
+
+  img {
+    transition-property: filter;
+    transition-duration: 0.3s;
+      filter: brightness(0%) opacity(40%) invert(1) ;
+  }
+
+  div.active img, img:hover {
+    filter:brightness(0) opacity(100%) invert(1); 
+    color: floralwhite
+}
+
+}
+
+#contentBlock {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  
+}
+
+weather-today {
+  width: 60%;
+  max-width: 900px;
+  height: 100%;
+  position: relative;
+  z-index: 30;
+  flex-grow:3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+map-block {
+  width: 40%;
+  height: 100%;
+  position: relative;
+  z-index: 30; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: center;
+}
+
+background-slider {
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  z-index: 20;
+}
+  
+@media screen and (max-width: $smDesktopWidth) {
+  body {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  background-slider{
+    height: 100%;
+  }
+
+  control-panel{
+    max-height: 100px;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  #contentBlock {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  weather-today {
+    width: 100%;
+  }
+
+  map-block {
+    width: 100%;
+    min-height: 500px;
+  }
+
+}
